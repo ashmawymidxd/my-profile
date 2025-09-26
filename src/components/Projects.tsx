@@ -62,7 +62,7 @@ const Projects = () => {
   const categories = ["All", "Platform", "Backend", "Frontend", "Full Stack", "Business", "Web App"];
 
   return (
-    <section id="projects" className="py-20 px-6 bg-muted/20">
+    <section id="projects" className="py-16 md:py-20 px-4 md:px-6 bg-muted/20 overflow-x-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -76,7 +76,7 @@ const Projects = () => {
         </div>
 
         {/* Filter Tabs */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        <div className="flex flex-wrap justify-center gap-3 mb-12 max-w-full">
           {translations.projects.categories.map((category) => (
             <button
               key={category}

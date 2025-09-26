@@ -24,7 +24,7 @@ const IndexContent = () => {
   }, []);
 
   return (
-    <div className={`min-h-screen bg-background ${isRTL ? 'font-arabic' : ''}`}>
+    <div className={`min-h-screen bg-background overflow-x-hidden ${isRTL ? 'font-arabic' : ''}`}>
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
         <div className="max-w-6xl mx-auto px-4 md:px-6 py-3 md:py-4">
@@ -85,7 +85,7 @@ const IndexContent = () => {
       </main>
 
       {/* Footer */}
-      <footer className="bg-muted/30 py-12 px-6">
+      <footer className="bg-muted/30 py-12 px-4 md:px-6 overflow-x-hidden">
         <div className="max-w-6xl mx-auto">
           <div className="text-center">
             <div className="text-2xl font-bold text-foreground mb-4">{translations.footer.name}</div>

@@ -4,7 +4,7 @@ import { useI18n } from '@/contexts/I18nContext';
 const About = () => {
   const { translations } = useI18n();
   return (
-    <section id="about" className="py-20 px-6">
+    <section id="about" className="py-16 md:py-20 px-4 md:px-6 overflow-x-hidden">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">

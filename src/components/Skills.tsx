@@ -41,7 +41,7 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-20 px-6">
+    <section id="skills" className="py-16 md:py-20 px-4 md:px-6 overflow-x-hidden">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -117,7 +117,7 @@ const Skills = () => {
               {translations.skills.learningDesc}
             </p>
             
-            <div className="flex flex-wrap justify-center gap-3">
+            <div className="flex flex-wrap justify-center gap-3 max-w-full">
               {translations.skills.learningItems.map((learning, index) => (
                 <span 
                   key={index}

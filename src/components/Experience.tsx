@@ -29,7 +29,7 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-20 px-6 bg-muted/30">
+    <section id="experience" className="py-16 md:py-20 px-4 md:px-6 bg-muted/30 overflow-x-hidden">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
