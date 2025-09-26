@@ -6,9 +6,13 @@ import Skills from '@/components/Skills';
 import Projects from '@/components/Projects';
 import Contact from '@/components/Contact';
 import ThemeToggle from '@/components/ThemeToggle';
+import LanguageToggle from '@/components/LanguageToggle';
 import ScrollToTop from '@/components/ScrollToTop';
+import { I18nProvider, useI18n } from '@/contexts/I18nContext';
 
-const Index = () => {
+const IndexContent = () => {
+  const { translations, isRTL } = useI18n();
+
   useEffect(() => {
     // Smooth scrolling behavior
     document.documentElement.style.scrollBehavior = 'smooth';
@@ -19,28 +23,30 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className={`min-h-screen bg-background ${isRTL ? 'font-arabic' : ''}`}>
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
         <div className="max-w-6xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="text-xl font-bold text-primary">
-              Ahmed Hassan
+              {translations.hero.name} {translations.hero.lastName}
             </div>
             
             {/* Navigation Links */}
             <div className="hidden md:flex items-center gap-8">
-              <a href="#about" className="text-muted-foreground hover:text-primary transition-colors">About</a>
-              <a href="#experience" className="text-muted-foreground hover:text-primary transition-colors">Experience</a>
-              <a href="#skills" className="text-muted-foreground hover:text-primary transition-colors">Skills</a>
-              <a href="#projects" className="text-muted-foreground hover:text-primary transition-colors">Projects</a>
-              <a href="#contact" className="text-muted-foreground hover:text-primary transition-colors">Contact</a>
+              <a href="#about" className="text-muted-foreground hover:text-primary transition-colors">{translations.nav.about}</a>
+              <a href="#experience" className="text-muted-foreground hover:text-primary transition-colors">{translations.nav.experience}</a>
+              <a href="#skills" className="text-muted-foreground hover:text-primary transition-colors">{translations.nav.skills}</a>
+              <a href="#projects" className="text-muted-foreground hover:text-primary transition-colors">{translations.nav.projects}</a>
+              <a href="#contact" className="text-muted-foreground hover:text-primary transition-colors">{translations.nav.contact}</a>
+              <LanguageToggle />
               <ThemeToggle />
             </div>
             
             {/* Mobile Menu */}
             <div className="md:hidden flex items-center gap-2">
+              <LanguageToggle />
               <ThemeToggle />
               <button className="p-2">
                 <div className="w-6 h-6 flex flex-col justify-center space-y-1">
@@ -68,18 +74,18 @@ const Index = () => {
       <footer className="bg-muted/30 py-12 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center">
-            <div className="text-2xl font-bold text-foreground mb-4">Ahmed Hassan Shehata</div>
-            <div className="text-muted-foreground mb-6">Full Stack Developer • Bani Swayf, Egypt</div>
+            <div className="text-2xl font-bold text-foreground mb-4">{translations.footer.name}</div>
+            <div className="text-muted-foreground mb-6">{translations.footer.title}</div>
             
             <div className="flex justify-center gap-6 mb-8">
-              <a href="mailto:ahmedhassanshehata551@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">Email</a>
-              <a href="https://linkedin.com/in/ahmed-hassan-shehata" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">LinkedIn</a>
-              <a href="https://github.com/ashmawymidxd" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">GitHub</a>
-              <a href="https://t.me/G1_ahmed_hassan" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">Telegram</a>
+              <a href="mailto:ahmedhassanshehata551@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">{translations.footer.email}</a>
+              <a href="https://linkedin.com/in/ahmed-hassan-shehata" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">{translations.footer.linkedin}</a>
+              <a href="https://github.com/ashmawymidxd" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">{translations.footer.github}</a>
+              <a href="https://t.me/G1_ahmed_hassan" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">{translations.footer.telegram}</a>
             </div>
             
             <div className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} Ahmed Hassan Shehata. All rights reserved.
+              © {new Date().getFullYear()} {translations.footer.copyright}
             </div>
           </div>
         </div>
@@ -88,6 +94,14 @@ const Index = () => {
       {/* Scroll to Top Button */}
       <ScrollToTop />
     </div>
+  );
+};
+
+const Index = () => {
+  return (
+    <I18nProvider>
+      <IndexContent />
+    </I18nProvider>
   );
 };
 

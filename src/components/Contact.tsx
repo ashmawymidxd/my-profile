@@ -1,8 +1,10 @@
 import { Mail, Phone, MapPin, Send, Linkedin, Github, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
+import { useI18n } from '@/contexts/I18nContext';
 
 const Contact = () => {
+  const { translations } = useI18n();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -27,22 +29,22 @@ const Contact = () => {
   const contactMethods = [
     {
       icon: <Mail className="w-6 h-6" />,
-      title: "Email",
+      title: translations.contact.methods.email,
       value: "ahmedhassanshehata551@gmail.com",
       link: "mailto:ahmedhassanshehata551@gmail.com",
       color: "primary"
     },
     {
       icon: <Phone className="w-6 h-6" />,
-      title: "Phone",
+      title: translations.contact.methods.phone,
       value: "01554300351 / 01208778686",
       link: "tel:+201554300351",
       color: "accent"
     },
     {
       icon: <MapPin className="w-6 h-6" />,
-      title: "Location",
-      value: "Bani Swayf, Egypt",
+      title: translations.contact.methods.location,
+      value: translations.hero.location,
       link: "#",
       color: "primary-glow"
     }
@@ -75,25 +77,24 @@ const Contact = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Let's Work Together
+            {translations.contact.title}
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary-glow mx-auto mb-6"></div>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            I'm open to freelance opportunities, full-time positions, and exciting tech discussions. 
-            Let's collaborate on your next big project or idea.
+            {translations.contact.subtitle}
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Form */}
           <div className="glass-card p-8">
-            <h3 className="text-2xl font-bold text-foreground mb-6">Send Me a Message</h3>
+            <h3 className="text-2xl font-bold text-foreground mb-6">{translations.contact.formTitle}</h3>
             
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                    Full Name
+                    {translations.contact.form.fullName}
                   </label>
                   <input
                     type="text"
@@ -103,13 +104,13 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 bg-background/50 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
-                    placeholder="Your name"
+                    placeholder={translations.contact.form.namePlaceholder}
                   />
                 </div>
                 
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                    Email Address
+                    {translations.contact.form.emailAddress}
                   </label>
                   <input
                     type="email"
@@ -119,14 +120,14 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 bg-background/50 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
-                    placeholder="your.email@example.com"
+                    placeholder={translations.contact.form.emailPlaceholder}
                   />
                 </div>
               </div>
               
               <div>
                 <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-2">
-                  Subject
+                  {translations.contact.form.subject}
                 </label>
                 <input
                   type="text"
@@ -136,13 +137,13 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-background/50 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"
-                  placeholder="Project collaboration, job opportunity, etc."
+                  placeholder={translations.contact.form.subjectPlaceholder}
                 />
               </div>
               
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                  Message
+                  {translations.contact.form.message}
                 </label>
                 <textarea
                   id="message"
@@ -152,7 +153,7 @@ const Contact = () => {
                   required
                   rows={5}
                   className="w-full px-4 py-3 bg-background/50 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 resize-none"
-                  placeholder="Tell me about your project or what you'd like to discuss..."
+                  placeholder={translations.contact.form.messagePlaceholder}
                 ></textarea>
               </div>
               
@@ -162,7 +163,7 @@ const Contact = () => {
                 className="w-full bg-primary hover:bg-primary-glow text-primary-foreground transition-all duration-300 hover:shadow-lg hover:shadow-primary/25"
               >
                 <Send className="w-5 h-5 mr-2" />
-                Send Message
+                {translations.contact.form.sendMessage}
               </Button>
             </form>
           </div>
@@ -171,7 +172,7 @@ const Contact = () => {
           <div className="space-y-8">
             {/* Contact Methods */}
             <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-foreground mb-6">Get In Touch</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-6">{translations.contact.getInTouchTitle}</h3>
               
               {contactMethods.map((method, index) => (
                 <div key={index} className="glass-card p-6 hover:shadow-lg transition-all duration-300 group">
@@ -195,7 +196,7 @@ const Contact = () => {
 
             {/* Social Links */}
             <div className="glass-card p-6">
-              <h4 className="font-semibold text-foreground mb-4">Connect With Me</h4>
+              <h4 className="font-semibold text-foreground mb-4">{translations.contact.connectTitle}</h4>
               <div className="flex gap-4">
                 {socialLinks.map((social, index) => (
                   <a
@@ -214,13 +215,13 @@ const Contact = () => {
 
             {/* Availability */}
             <div className="glass-card p-6">
-              <h4 className="font-semibold text-foreground mb-3">Current Availability</h4>
+              <h4 className="font-semibold text-foreground mb-3">{translations.contact.availabilityTitle}</h4>
               <div className="flex items-center gap-2 mb-2">
                 <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                <span className="text-sm text-muted-foreground">Available for new projects</span>
+                <span className="text-sm text-muted-foreground">{translations.contact.availableStatus}</span>
               </div>
               <p className="text-sm text-muted-foreground">
-                Response time: Usually within 24 hours
+                {translations.contact.responseTime}
               </p>
             </div>
           </div>

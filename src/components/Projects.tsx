@@ -1,11 +1,14 @@
 import { ExternalLink, Github, Code, Database, Palette } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useI18n } from '@/contexts/I18nContext';
 
 const Projects = () => {
+  const { translations } = useI18n();
+  
   const projects = [
     {
       title: "SFCL Platform",
-      description: "60+ projects built using PHP & MySQL with robust backend architecture and user management systems.",
+      description: translations.projects.projectDescriptions.sfcl,
       url: "https://sfcl.sa",
       category: "Platform",
       tech: ["PHP", "MySQL", "JavaScript", "CSS"],
@@ -14,7 +17,7 @@ const Projects = () => {
     },
     {
       title: "Admin SFCL",
-      description: "15 large-scale Laravel monolithic & microservices applications with advanced admin dashboards.",
+      description: translations.projects.projectDescriptions.adminSfcl,
       url: "https://adminsfcl.net", 
       category: "Backend",
       tech: ["Laravel", "Microservices", "MySQL", "API"],
@@ -23,7 +26,7 @@ const Projects = () => {
     },
     {
       title: "Segam - Expert Dental Care",
-      description: "UI-rich healthcare website using React, Tailwind CSS, and modern design patterns for dental services.",
+      description: translations.projects.projectDescriptions.segam,
       category: "Frontend",
       tech: ["React", "Tailwind CSS", "TypeScript", "Bootstrap"],
       color: "primary-glow",
@@ -31,7 +34,7 @@ const Projects = () => {
     },
     {
       title: "SegamDashboard",
-      description: "Full Stack dashboard application built with Node.js and React for comprehensive data management.",
+      description: translations.projects.projectDescriptions.segamDashboard,
       category: "Full Stack",
       tech: ["Node.js", "React", "MongoDB", "Express.js"],
       color: "primary",
@@ -39,7 +42,7 @@ const Projects = () => {
     },
     {
       title: "ALNejum Contracting",
-      description: "Business website for construction company with project portfolio and service management.",
+      description: translations.projects.projectDescriptions.alnејum,
       category: "Business",
       tech: ["Laravel", "MySQL", "Bootstrap", "jQuery"],
       color: "accent",
@@ -47,7 +50,7 @@ const Projects = () => {
     },
     {
       title: "Schengen Visa App",
-      description: "Flask-based application for visa application processing with document management and tracking.",
+      description: translations.projects.projectDescriptions.schengen,
       url: "https://schengen-visa-app.com",
       category: "Web App", 
       tech: ["Flask", "Python", "SQLite", "JavaScript"],
@@ -64,17 +67,17 @@ const Projects = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Featured Projects
+            {translations.projects.title}
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary-glow mx-auto mb-6"></div>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Explore my portfolio of web applications, ranging from complex microservices to beautiful frontend interfaces.
+            {translations.projects.subtitle}
           </p>
         </div>
 
         {/* Filter Tabs */}
         <div className="flex flex-wrap justify-center gap-3 mb-12">
-          {categories.map((category) => (
+          {translations.projects.categories.map((category) => (
             <button
               key={category}
               className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 border border-primary/20 hover:border-primary/40 hover:bg-primary/10 text-muted-foreground hover:text-primary"
@@ -131,7 +134,7 @@ const Projects = () => {
                   >
                     <a href={project.url} target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="w-4 h-4 mr-2" />
-                      Live Demo
+                      {translations.projects.liveDemo}
                     </a>
                   </Button>
                 )}
@@ -142,7 +145,7 @@ const Projects = () => {
                   className="border-muted-foreground/20 hover:border-muted-foreground/40 text-muted-foreground hover:text-foreground"
                 >
                   <Github className="w-4 h-4 mr-2" />
-                  Code
+                  {translations.projects.code}
                 </Button>
               </div>
 
@@ -155,9 +158,9 @@ const Projects = () => {
         {/* More Projects CTA */}
         <div className="text-center mt-16">
           <div className="glass-card p-8 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-foreground mb-4">More Projects on GitHub</h3>
+            <h3 className="text-2xl font-bold text-foreground mb-4">{translations.projects.moreProjectsTitle}</h3>
             <p className="text-muted-foreground mb-6">
-              Check out my GitHub profile for more projects, code samples, and contributions to open source.
+              {translations.projects.moreProjectsDesc}
             </p>
             <Button 
               size="lg"
@@ -166,7 +169,7 @@ const Projects = () => {
             >
               <a href="https://github.com/ashmawymidxd" target="_blank" rel="noopener noreferrer">
                 <Github className="w-5 h-5 mr-2" />
-                View GitHub Profile
+                {translations.projects.viewGithub}
               </a>
             </Button>
           </div>

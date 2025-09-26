@@ -4,6 +4,7 @@
 
 /* Ahmed Hassan Portfolio Design System - Glass Morphism Theme */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   :root {
@@ -130,7 +131,11 @@
   }
 
   body {
-    @apply bg-background text-foreground font-['Inter',sans-serif];
+    @apply bg-background text-foreground font-sans;
+  }
+  
+  .font-arabic {
+    font-family: 'Noto Sans Arabic', 'Inter', sans-serif;
   }
 }
 

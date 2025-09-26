@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Mail, Briefcase, Linkedin, Github, MessageCircle, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useI18n } from '@/contexts/I18nContext';
 import heroBackground from '@/assets/hero-background.jpg';
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const { translations } = useI18n();
 
   useEffect(() => {
     setIsVisible(true);
@@ -33,7 +35,7 @@ const Hero = () => {
           {/* Location & Contact Info */}
           <div className="mb-8 glass-card inline-block px-6 py-3">
             <div className="flex items-center gap-4 text-sm text-foreground/80">
-              <span>📍 Bani Swayf, Egypt</span>
+              <span>📍 {translations.hero.location}</span>
               <span className="flex items-center gap-1">
                 <Phone size={14} />
                 01554300351 / 01208778686
@@ -43,19 +45,18 @@ const Hero = () => {
 
           {/* Main Heading */}
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 text-glow">
-            Ahmed Hassan 
-            <span className="text-accent block md:inline md:ml-4">Shehata</span>
+            {translations.hero.name}
+            <span className="text-accent block md:inline md:ml-4">{translations.hero.lastName}</span>
           </h1>
 
           {/* Subtitle */}
           <div className="text-2xl md:text-3xl text-white/90 mb-8 font-light">
-            Full Stack Developer
+            {translations.hero.title}
           </div>
 
           {/* Description */}
           <p className="text-lg md:text-xl text-white/80 max-w-4xl mx-auto mb-10 leading-relaxed">
-            I am a passionate Full Stack Developer specializing in modern web technologies and scalable solutions. 
-            My focus is on building clean, efficient, and user-friendly applications while keeping up with the latest trends in software development.
+            {translations.hero.description}
           </p>
 
           {/* CTA Buttons */}
@@ -66,7 +67,7 @@ const Hero = () => {
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               <Mail className="w-5 h-5 mr-2" />
-              Contact Me
+              {translations.hero.contactMe}
             </Button>
             
             <Button 
@@ -76,7 +77,7 @@ const Hero = () => {
               onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
             >
               <Briefcase className="w-5 h-5 mr-2" />
-              View Projects
+              {translations.hero.viewProjects}
             </Button>
             
             <Button 
@@ -87,7 +88,7 @@ const Hero = () => {
             >
               <a href="https://linkedin.com/in/ahmed-hassan-shehata" target="_blank" rel="noopener noreferrer">
                 <Linkedin className="w-5 h-5 mr-2" />
-                LinkedIn
+                {translations.hero.linkedin}
               </a>
             </Button>
           </div>

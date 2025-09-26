@@ -1,27 +1,30 @@
 import { Code, Database, Palette, Settings } from 'lucide-react';
+import { useI18n } from '@/contexts/I18nContext';
 
 const Skills = () => {
+  const { translations } = useI18n();
+  
   const skillCategories = [
     {
-      title: "Backend Development",
+      title: translations.skills.categories.backend,
       icon: <Database className="w-6 h-6" />,
       color: "primary",
       skills: ["PHP", "Laravel", "Flask", "Node.js", "Microservices", "API Development"]
     },
     {
-      title: "Frontend Development", 
+      title: translations.skills.categories.frontend, 
       icon: <Code className="w-6 h-6" />,
       color: "accent",
       skills: ["React", "JavaScript", "TypeScript", "Tailwind CSS", "Bootstrap", "Responsive Design"]
     },
     {
-      title: "Databases",
+      title: translations.skills.categories.databases,
       icon: <Settings className="w-6 h-6" />,
       color: "primary-glow",
       skills: ["MySQL", "MongoDB", "Oracle", "Database Design", "Query Optimization"]
     },
     {
-      title: "Tools & Design",
+      title: translations.skills.categories.tools,
       icon: <Palette className="w-6 h-6" />,
       color: "accent",
       skills: ["Git", "GitHub", "Figma", "Photoshop", "Illustrator", "Adobe XD"]
@@ -43,11 +46,11 @@ const Skills = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Skills & Technologies
+            {translations.skills.title}
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary-glow mx-auto mb-6"></div>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Proficient in both frontend and backend development, I excel in crafting elegant user interfaces and powerful server-side logic.
+            {translations.skills.subtitle}
           </p>
         </div>
 
@@ -81,7 +84,7 @@ const Skills = () => {
         {/* Proficiency Levels */}
         <div className="glass-card p-8">
           <h3 className="text-2xl font-bold text-foreground mb-8 text-center">
-            Technology Proficiency
+            {translations.skills.proficiencyTitle}
           </h3>
           
           <div className="grid md:grid-cols-2 gap-8">
@@ -109,14 +112,13 @@ const Skills = () => {
         {/* Certifications / Learning */}
         <div className="mt-12 text-center">
           <div className="glass-card p-8 max-w-3xl mx-auto">
-            <h3 className="text-xl font-bold text-foreground mb-4">Continuous Learning</h3>
+            <h3 className="text-xl font-bold text-foreground mb-4">{translations.skills.learningTitle}</h3>
             <p className="text-muted-foreground mb-6">
-              I believe in staying updated with the latest technologies and best practices in web development. 
-              Currently exploring AI integration, cloud architectures, and advanced React patterns.
+              {translations.skills.learningDesc}
             </p>
             
             <div className="flex flex-wrap justify-center gap-3">
-              {["Cloud Computing", "AI/ML Integration", "DevOps", "Mobile Development"].map((learning, index) => (
+              {translations.skills.learningItems.map((learning, index) => (
                 <span 
                   key={index}
                   className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium border border-primary/20"

@@ -1,26 +1,29 @@
 import { Briefcase, Calendar, ExternalLink } from 'lucide-react';
+import { useI18n } from '@/contexts/I18nContext';
 
 const Experience = () => {
+  const { translations } = useI18n();
+  
   const experiences = [
     {
-      title: "Full Stack Developer – Microservice Applications",
-      period: "January 2023 – December 2024",
-      description: "Built robust microservices using Laravel, Slim, and Lumen, designing scalable architectures for complex systems.",
-      type: "Full-time",
+      title: translations.experience.jobs.fullStack.title,
+      period: translations.experience.jobs.fullStack.period,
+      description: translations.experience.jobs.fullStack.description,
+      type: translations.experience.jobs.fullStack.type,
       color: "primary"
     },
     {
-      title: "Web Developer – Freelancer",
-      period: "January 2022 – December 2023", 
-      description: "Developed dynamic websites for clients on Mostaqel, delivering responsive and user-focused solutions.",
-      type: "Freelance",
+      title: translations.experience.jobs.webDeveloper.title,
+      period: translations.experience.jobs.webDeveloper.period,
+      description: translations.experience.jobs.webDeveloper.description,
+      type: translations.experience.jobs.webDeveloper.type,
       color: "accent"
     },
     {
-      title: "Graphic Designer – Freelancer",
-      period: "January 2021 – December 2022",
-      description: "Created social media posts, 3D designs, UI/UX layouts, and marketing materials using Adobe tools.",
-      type: "Freelance", 
+      title: translations.experience.jobs.graphicDesigner.title,
+      period: translations.experience.jobs.graphicDesigner.period,
+      description: translations.experience.jobs.graphicDesigner.description,
+      type: translations.experience.jobs.graphicDesigner.type,
       color: "primary-glow"
     }
   ];
@@ -31,11 +34,11 @@ const Experience = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Professional Experience
+            {translations.experience.title}
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary-glow mx-auto mb-6"></div>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A journey through my professional growth in web development and design
+            {translations.experience.subtitle}
           </p>
         </div>
 
@@ -90,7 +93,7 @@ const Experience = () => {
                     <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <div className="flex items-center gap-2 text-primary text-sm font-medium">
                         <ExternalLink size={14} />
-                        Learn more
+                        {translations.experience.learnMore}
                       </div>
                     </div>
                   </div>
@@ -103,15 +106,15 @@ const Experience = () => {
         {/* Call to Action */}
         <div className="text-center mt-16">
           <div className="glass-card p-8 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-foreground mb-4">Ready to Work Together?</h3>
+            <h3 className="text-2xl font-bold text-foreground mb-4">{translations.experience.readyTitle}</h3>
             <p className="text-muted-foreground mb-6">
-              I'm always open to discussing new opportunities and exciting projects.
+              {translations.experience.readyDesc}
             </p>
             <button 
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               className="bg-primary hover:bg-primary-glow text-primary-foreground px-8 py-3 rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:shadow-primary/25"
             >
-              Get In Touch
+              {translations.experience.getInTouch}
             </button>
           </div>
         </div>

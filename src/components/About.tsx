@@ -1,13 +1,15 @@
 import { GraduationCap, Code, Target } from 'lucide-react';
+import { useI18n } from '@/contexts/I18nContext';
 
 const About = () => {
+  const { translations } = useI18n();
   return (
     <section id="about" className="py-20 px-6">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            About Me
+            {translations.about.title}
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary-glow mx-auto"></div>
         </div>
@@ -19,17 +21,15 @@ const About = () => {
               <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
                 <GraduationCap className="w-6 h-6 text-primary" />
               </div>
-              <h3 className="text-2xl font-semibold text-foreground">Education & Background</h3>
+              <h3 className="text-2xl font-semibold text-foreground">{translations.about.educationTitle}</h3>
             </div>
             
             <p className="text-lg text-muted-foreground leading-relaxed">
-              I am a graduate of the <strong className="text-foreground">Faculty of Computing & Artificial Intelligence (2024)</strong> with 
-              a deep passion for technology and programming.
+              {translations.about.educationDesc1}
             </p>
             
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Over the years, I have built a diverse skill set spanning <strong className="text-primary">frontend, backend, databases, and UI/UX design</strong>, 
-              enabling me to deliver complete end-to-end web solutions.
+              {translations.about.educationDesc2}
             </p>
           </div>
 
@@ -41,10 +41,10 @@ const About = () => {
                 <div className="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center">
                   <Target className="w-5 h-5 text-accent" />
                 </div>
-                <h3 className="text-xl font-semibold text-foreground">My Mission</h3>
+                <h3 className="text-xl font-semibold text-foreground">{translations.about.missionTitle}</h3>
               </div>
               <p className="text-muted-foreground leading-relaxed">
-                To create innovative, high-quality applications that solve real-world problems and deliver exceptional user experiences.
+                {translations.about.missionDesc}
               </p>
             </div>
 
@@ -54,10 +54,10 @@ const About = () => {
                 <div className="w-10 h-10 bg-primary-glow/10 rounded-lg flex items-center justify-center">
                   <Code className="w-5 h-5 text-primary-glow" />
                 </div>
-                <h3 className="text-xl font-semibold text-foreground">Full Stack Expertise</h3>
+                <h3 className="text-xl font-semibold text-foreground">{translations.about.expertiseTitle}</h3>
               </div>
               <p className="text-muted-foreground leading-relaxed">
-                Proficient in both frontend and backend development, I excel in crafting elegant user interfaces and powerful server-side logic.
+                {translations.about.expertiseDesc}
               </p>
             </div>
 
@@ -65,15 +65,15 @@ const About = () => {
             <div className="grid grid-cols-3 gap-4">
               <div className="text-center glass-card p-4">
                 <div className="text-2xl font-bold text-primary">3+</div>
-                <div className="text-sm text-muted-foreground">Years Experience</div>
+                <div className="text-sm text-muted-foreground">{translations.about.yearsExperience}</div>
               </div>
               <div className="text-center glass-card p-4">
                 <div className="text-2xl font-bold text-primary">75+</div>
-                <div className="text-sm text-muted-foreground">Projects Built</div>
+                <div className="text-sm text-muted-foreground">{translations.about.projectsBuilt}</div>
               </div>
               <div className="text-center glass-card p-4">
                 <div className="text-2xl font-bold text-primary">100%</div>
-                <div className="text-sm text-muted-foreground">Client Satisfaction</div>
+                <div className="text-sm text-muted-foreground">{translations.about.clientSatisfaction}</div>
               </div>
             </div>
           </div>
