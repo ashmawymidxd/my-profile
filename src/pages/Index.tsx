@@ -9,6 +9,7 @@ import ThemeToggle from '@/components/ThemeToggle';
 import LanguageToggle from '@/components/LanguageToggle';
 import ScrollToTop from '@/components/ScrollToTop';
 import { I18nProvider, useI18n } from '@/contexts/I18nContext';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 const IndexContent = () => {
   const { translations, isRTL } = useI18n();
@@ -26,7 +27,7 @@ const IndexContent = () => {
     <div className={`min-h-screen bg-background ${isRTL ? 'font-arabic' : ''}`}>
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
-        <div className="max-w-6xl mx-auto px-6 py-4">
+        <div className="max-w-6xl mx-auto px-4 md:px-6 py-3 md:py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="text-xl font-bold text-primary">
@@ -48,13 +49,26 @@ const IndexContent = () => {
             <div className="md:hidden flex items-center gap-2">
               <LanguageToggle />
               <ThemeToggle />
-              <button className="p-2">
-                <div className="w-6 h-6 flex flex-col justify-center space-y-1">
-                  <div className="w-full h-0.5 bg-foreground"></div>
-                  <div className="w-full h-0.5 bg-foreground"></div>
-                  <div className="w-full h-0.5 bg-foreground"></div>
-                </div>
-              </button>
+              <Sheet>
+                <SheetTrigger asChild>
+                  <button className="p-2">
+                    <div className="w-6 h-6 flex flex-col justify-center space-y-1">
+                      <div className="w-full h-0.5 bg-foreground"></div>
+                      <div className="w-full h-0.5 bg-foreground"></div>
+                      <div className="w-full h-0.5 bg-foreground"></div>
+                    </div>
+                  </button>
+                </SheetTrigger>
+                <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+                  <nav className="flex flex-col gap-6 mt-8">
+                    <a href="#about" className="text-lg font-medium hover:text-primary transition-colors">{translations.nav.about}</a>
+                    <a href="#experience" className="text-lg font-medium hover:text-primary transition-colors">{translations.nav.experience}</a>
+                    <a href="#skills" className="text-lg font-medium hover:text-primary transition-colors">{translations.nav.skills}</a>
+                    <a href="#projects" className="text-lg font-medium hover:text-primary transition-colors">{translations.nav.projects}</a>
+                    <a href="#contact" className="text-lg font-medium hover:text-primary transition-colors">{translations.nav.contact}</a>
+                  </nav>
+                </SheetContent>
+              </Sheet>
             </div>
           </div>
         </div>

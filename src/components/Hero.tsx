@@ -30,32 +30,33 @@ const Hero = () => {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
+      <div className="relative z-40 max-w-6xl mx-auto px-4 md:px-6 text-center">
         <div className={`transition-all duration-1000 ${isVisible ? 'animate-fade-up' : 'opacity-0'}`}>
           {/* Location & Contact Info */}
-          <div className="mb-8 glass-card inline-block px-6 py-3">
-            <div className="flex items-center gap-4 text-sm text-foreground/80">
+          <div className="mb-6 md:mb-8 glass-card inline-block px-4 md:px-6 py-2 md:py-3">
+            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-xs sm:text-sm text-foreground/80">
               <span>📍 {translations.hero.location}</span>
               <span className="flex items-center gap-1">
-                <Phone size={14} />
-                01554300351 / 01208778686
+                <Phone size={12} className="sm:hidden" />
+                <Phone size={14} className="hidden sm:block" />
+                <span className="text-xs sm:text-sm">01554300351 / 01208778686</span>
               </span>
             </div>
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 text-glow">
+          <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold text-white mb-4 md:mb-6 text-glow">
             {translations.hero.name}
             <span className="text-accent block md:inline md:ml-4">{translations.hero.lastName}</span>
           </h1>
 
           {/* Subtitle */}
-          <div className="text-2xl md:text-3xl text-white/90 mb-8 font-light">
+          <div className="text-lg sm:text-2xl md:text-3xl text-white/90 mb-6 md:mb-8 font-light px-4">
             {translations.hero.title}
           </div>
 
           {/* Description */}
-          <p className="text-lg md:text-xl text-white/80 max-w-4xl mx-auto mb-10 leading-relaxed">
+          <p className="text-base md:text-lg lg:text-xl text-white/80 max-w-4xl mx-auto mb-8 md:mb-10 leading-relaxed px-4">
             {translations.hero.description}
           </p>
 
